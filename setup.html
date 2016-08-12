@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        body{margin:0px;padding:0px;}
+        .top{width:100%; height:80px; background-color:#0094ff;}
+        .leftside{float:left;width:20%;}
+		dl dt{background:#000; color:#fff;padding:5px; margin:2px 0px;max-width:450px;}
+
+.rightside{float:left;width:80%;}        .content{width:1024px; margin:0 auto}
+
+                                         .menu{margin:0px;}
+                                         .menu li{list-style:none;padding:10px 15px; float:left;line-height:50px; }
+                                         .menu li a{color:#fff;text-decoration:none; font-size:17px;font-weight: bold;font-family: Trebuchet MS, Myriad Pro, Arial;}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="content">
+            <div class="leftside">
+                <img  src="https://usurvey.uniceflabs.org/static/img/uSurvey.png" style="float:left" />
+            </div>
+            <div class="rightside">
+                <ul class="menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><b><u><a href="setup.html">INSTALLATION</b></a></u></li>
+		    <li><a href="usermanual.html">USER MANUAL</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+ <div class="content">
+		 <div style="top:50px; position:relative;">
+<h3><i>USurvey installation guide</l></h3>
+<h4><i>Prerequisites</l></h4>
+<dl>
+  <dt>PostgreSQL 9.3 or later</dt>
+  <dt>Redis 2.8 or later</dt>
+</dl>
+<h4><i>Clone uSurvey</l></h4>
+<dl>
+  <dt>$ git clone https://github.com/unicefuganda/mics.git</dt>
+  <dt>$ cd mics/mics</dt>
+  <dt>$ cp travis-settings.py localsettings.py</dt>
+  <dt>$ cd ../survey</dt>
+  <dt>$ cd ..</dt>
+</dl>
+<h4><i>Create Virtual environment and run server</l></h4>
+<dl>
+    <dt>$ sudo apt-get update</dt>
+
+    <dt>$ sudo apt-get install python-dev libxml2-dev libxslt1-dev zlib1g-dev</dt>
+
+    <dt>$ mkvirtualenv mics</dt>
+
+    <dt>$ pip install -U -r pip-requires.txt</dt>
+
+    <dt>$ python manage.py syncdb --noinput</dt>
+
+    <dt>$ python manage.py makemigrations</dt>
+
+    <dt>$ python manage.py migrate</dt>
+
+    <dt>$ python manage.py load_parameters</dt>
+
+    <dt>$ supervisord</dt>
+
+    <dt>$ supervisorctl</dt>
+</dl>
+<h4><i>Loading locations</l></h4>
+<dl>
+ <dt>$ python manage.py import_location [LOCATION_FILE_CSV]</dt>
+    
+    <p><i>The first line of the csv file shall be taken as file header. </br></br>
+    
+    The file header is expected to contain names as per the Administrative division of the current country in a comma separated format. The last entry of the header can contain EAName</br>  
+    Eg. For Uganda, example headers can be **Country,DistrictName,CountyName,SubCountyName,ParishName,VillageName,EAName </i></p>
+<h4><i>Starting up</l></h4>
+
+    Make sure you configure appropriate ports in the supervisord.conf file.<br /><br />
+
+    Start the system using supervisor:<br />
+
+    <dt>supervisord -c supervisord.conf</dt><br />
+
+    In supervisord.conf, the configuration under [program:odk-server] is required to serve ODK requests, while the configuration under [program:django-interface-server] is for serving other requests.
+<br /><br />
+    
+</dl>
+</div>
+</div>
+</body>
+</html>
