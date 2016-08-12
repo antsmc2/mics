@@ -39,8 +39,8 @@
 <h3><i>USurvey installation guide</l></h3>
 <h4><i>Prerequisites</l></h4>
 <dl>
-  <dt>PostgreSQL 9.3 or later</dt>
-  <dt>Redis 2.8 or later</dt>
+  <dt>Postgres, redis-server should be running</dt>
+  <dt>It helps to install python-dev, libxml2-dev, libxslt1-dev, zlib1g-dev and libffi-dev (for a debian based system, the command would be sudo apt-get install python-dev libxml2-dev libxslt1-dev zlib1g-dev libffi-dev)</dt>
 </dl>
 <h4><i>Clone uSurvey</l></h4>
 <dl>
@@ -53,8 +53,6 @@
 <h4><i>Create Virtual environment and run server</l></h4>
 <dl>
     <dt>$ sudo apt-get update</dt>
-
-    <dt>$ sudo apt-get install python-dev libxml2-dev libxslt1-dev zlib1g-dev</dt>
 
     <dt>$ mkvirtualenv mics</dt>
 
