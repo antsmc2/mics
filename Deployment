@@ -1,4 +1,4 @@
-## H2 Deployment
+Deployment
 Setting Up VPS for Python Environment:
 Deployment involves packaging Web Application and putting it in a production environment that can run the application. A production environment is the canonical version of our current application and its associated data into live.
 Common Prerequisites:
