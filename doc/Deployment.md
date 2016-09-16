@@ -17,7 +17,9 @@ Python web application deployments are comprised of many pieces that need to be 
 8.	Task Queues (Redis Queue)
 9.	Continuous Integration (Travis-CI)
 
-A high-level overview of web application deployment architecture is presented in Figure 1.1
+A high-level overview of web application deployment map is presented in Figure 1.1
 
 
 ![Deployment Architecture](https://github.com/antsmc2/mics/blob/uSurvey/doc/uSurvey_Deployment.png)
+
+Figure 1.1: Map of uSurvay web application deployment
